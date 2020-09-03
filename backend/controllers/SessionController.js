@@ -5,8 +5,12 @@ module.exports = {
     async store(request, response) {
         const { name, email, password } = request.body;
 
-        const user = await User.create({ name, email, password });
+        let user = await User.findOne({ email });
 
-        return response.json(user);
-    }
+            if(!user) {
+                user = await User.create({ name, email, password });
+            } 
+
+            return response.json(user);
+    } 
 }
