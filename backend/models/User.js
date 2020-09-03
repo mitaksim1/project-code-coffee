@@ -7,4 +7,4 @@ const mongoose = require('mongoose');
     });
 
 // Compiling schema into a model
-module.exports = moongoose.model('User', UserSchema);
+module.exports = mongoose.model('User', UserSchema);
