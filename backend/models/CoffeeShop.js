@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 // Schema
 const CoffeeSchema = new mongoose.Schema({
     thumbnail: String,
+    company: String,
     techs: [String],
     user: {
         type: mongoose.Schema.Types.ObjectId,

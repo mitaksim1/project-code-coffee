@@ -9,8 +9,18 @@ module.exports = {
     },
 
     async store(request, response) {
-        console.log(request.body);
-        console.log(request.file);
+        const { filename } = request.file;
+        const { company, techs } = request.body;
+        const {user_id } = request.headers.authorization;
+
+        const coffee = await Coffee.create({
+            user: user_id,
+            thumbnail: filename,
+            company,
+            techs: techs.split(',').map(tech => tech.trim())
+        })
+
+        return response.json(coffee);
 
     }    
 }
