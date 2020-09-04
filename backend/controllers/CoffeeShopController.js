@@ -21,7 +21,7 @@ module.exports = {
     async store(request, response) {
         const { filename } = request.file;
         const { company, techs } = request.body;
-        const {user_id } = request.headers.authorization;
+        const {user_id } = request.headers;
 
         // User exists ?
         const user = await User.findById(user_id);
