@@ -4,8 +4,17 @@ const User = require('../models/User');
 
 module.exports = {
 
+    // Lists all coffee shops
     async index(request, response) {
-        return response.json({ ok: true });
+        const { tech } = request.query;
+
+        const coffee = await Coffee.find({ techs: tech });
+
+        if (coffee != tech) {
+            return response.status(400).json({ error: 'Pas d\'événement programmé avec cette technologie'});
+        }
+
+        return response.json(coffee);
     },
 
     // Creating an event in a coffee shop
