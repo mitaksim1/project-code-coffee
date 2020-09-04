@@ -8,10 +8,18 @@ module.exports = {
         return response.json({ ok: true });
     },
 
+    // Creating an event in a coffee shop
     async store(request, response) {
         const { filename } = request.file;
         const { company, techs } = request.body;
         const {user_id } = request.headers.authorization;
+
+        // User exists ?
+        const user = await User.findById(user_id);
+
+        if (!user) {
+            return response.status(400).json({ error: 'User does not exists' });
+        }
 
         const coffee = await Coffee.create({
             user: user_id,
