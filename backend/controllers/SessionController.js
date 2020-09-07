@@ -1,3 +1,6 @@
+/**
+ * User's create account
+ */
 // Imports
 const User = require('../models/User');
 
