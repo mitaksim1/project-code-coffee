@@ -5,7 +5,7 @@ const uploadConfig = require('./config/upload');
 
 // Import Controllers
 const SessionController = require('./controllers/SessionController');
-const CoffeeShopController = require('./controllers/CoffeeShopController');
+const CoffeeEventController = require('./controllers/CoffeeEventController');
 const DashboardController = require('./controllers/DashboardController');
 const BookingController = require('./controllers/BookingController');
 
@@ -16,11 +16,9 @@ const routes = express.Router();
 const upload = multer(uploadConfig);
 
 routes.post('/sessions', SessionController.store);
-routes.get('/coffees', CoffeeShopController.index);
+routes.get('/coffees', CoffeeEventController.index);
+routes.post('/coffees', upload.single('thumbnail'), CoffeeEventController.store);
 routes.get('/dashboard', DashboardController.show);
 routes.post('/coffees/:coffee_id/bookings', BookingController.store);
-
-// Route to upload images
-routes.post('/coffees', upload.single('thumbnail'), CoffeeShopController.store);
 
 module.exports = routes;
