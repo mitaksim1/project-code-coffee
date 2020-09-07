@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 // Table
 const BookingSchema = new mongoose.Schema({
-    date: String,
+    date: { type: Date, default: Date.now },
     approved: Boolean,
     user: {
         type: mongoose.Schema.Types.ObjectId,
