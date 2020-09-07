@@ -1,5 +1,5 @@
 // Imports
-const Coffee = require('../models/CoffeeShop');
+const Coffee = require('../models/CoffeeEvent');
 
 module.exports = {
     async show(request, response) {
@@ -8,5 +8,5 @@ module.exports = {
         const coffees = await Coffee.find({ user: user_id });
 
         return response.json(coffees);
-    }
+    },
 }
