@@ -31,8 +31,6 @@ html, body, #root {
     /*align-items: flex-start;*/
 }
 
-
-
 .content {
     display: flex;
     flex-direction: column;
