@@ -2,7 +2,7 @@ import React from 'react';
 import { Button } from 'react-bootstrap';
 
 import './App.css';
-import Header from './Header';
+import Header from './pages/Header';
 
 // Imports dans l'application
 import logo from './Assets/code-and-coffee-logo.svg';

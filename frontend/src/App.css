@@ -31,42 +31,7 @@ html, body, #root {
     /*align-items: flex-start;*/
 }
 
-.menu {
-    display: flex;
-    position: absolute;
-    left: 0;
-    border: 1px solid red;
-    width: 50%;
-    height: 120px;
-}
 
-.menu_logo {
-    height: 120px;
-    width: 120px;
-    border: 1px solid blue;
-}
-
-.menu_items {
-    display: flex;   
-    color: black;    
-    border: 1px solid red;
-    height: 80%;
-    width: 70%;
-}
-
-ul {
-    display: flex;
-    align-items: center;
-}
-
-.menu_items li {
-    border: 1px solid blue;
-    margin: 1em;
-    list-style: none;
-    font-size: 20px;
-    font-family: 'Ubuntu', sans-serif; 
-    flex-wrap: wrap;  
-}
 
 .content {
     display: flex;
@@ -80,10 +45,3 @@ ul {
     max-width: 30%;
     padding: 1em;
 }
-
-.content.form {
-    
-   
-}
-
-
