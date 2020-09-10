@@ -1,0 +1,26 @@
+.text_home {
+    display: block;
+    flex-wrap: wrap;
+    align-self: center;    
+    color: black;;
+    width: 40%;
+    border: 1px solid black;
+    position: absolute;
+    left: 5%;
+    font-size: 20px;
+    padding: 1em;
+}
+
+.title {
+   /* position: absolute;
+    left: 10%;
+    top: 20%;*/
+    /*border: 1px solid black;*/
+    display: block;
+    flex-wrap: wrap;
+    font-size: 60px;
+}
+
+.title span {
+    color: white;
+}

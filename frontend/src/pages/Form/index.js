@@ -2,17 +2,20 @@ import React, { useState } from 'react';
 import { Button } from 'react-bootstrap';
 
 import api from '../../services/api';
-import './style.css';
+/*import './style.css';*/
 
 export default function Form() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
     // Form submit method
-    function handleSubmit(event) {
+    async function handleSubmit(event) {
         event.preventDefault();
-        console.log(email);
-        console.log(password);
+
+        // Requesting API
+        const response = await api.post('/sessions', { email, password });
+
+        console.log(response);
       }
 
       // Changes email's input value
@@ -27,11 +30,10 @@ export default function Form() {
 
     return (
         <div className="content">
-        <p>Réservez un <strong>Coffee Bar</strong> pour coder vos projets et rencontrez d'autres <strong>développeurs</strong> pour partager vos idées!</p>
-
+        
         <form className="content_form" onSubmit={handleSubmit}>
-          <label htmlFor="password">E-MAIL</label>
-          <input 
+          <label htmlFor="email">E-MAIL</label>
+          <input
           type="email" 
           id="email" 
           placeholder="Votre e-mail" 
@@ -39,10 +41,10 @@ export default function Form() {
           onChange={handleEmailChange}
           />
           <label htmlFor="password">PASSWORD</label>
-          <input 
+          <input
           type="password" 
           id="password" 
-          placeholder="Votre password" 
+          placeholder="Votre mot de passe" 
           value={ password }
           onChange={handlePasswordChange}
           />

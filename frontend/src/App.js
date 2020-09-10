@@ -3,6 +3,7 @@ import React from 'react';
 import './App.css';
 
 import Header from './pages/Header';
+import Home from './pages/Home';
 import Login from './pages/Login';
 import Form from './pages/Form';
 
@@ -16,8 +17,8 @@ function App() {
       <Header 
       logo={logo}
       />
-      <Login />
-      <Form />   
+      <Home />
+      {/*<Form />   */}
   </div>   
   );
 }

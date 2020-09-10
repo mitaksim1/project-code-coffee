@@ -2,35 +2,40 @@
     display: flex;
     position: absolute;
     left: 0;
+    top: 0;
     border: 1px solid red;
     width: 50%;
-    height: 120px;
+    height: 130px;
 }
 
 .menu_logo {
-    height: 120px;
-    width: 120px;
+    height: 100%;
+    width: 150px;
     border: 1px solid blue;
 }
 
 .menu_items {
-    display: flex;   
+    display: flex;     
     color: black;    
     border: 1px solid red;
-    height: 80%;
-    width: 70%;
+    height: 100%;
+    width: 90%;
 }
 
-ul {
-    display: flex;
-    align-items: center;
+.menu_list {
+    display: inline-flex;
 }
 
-.menu_items li {
+.menu_list li {   
     border: 1px solid blue;
     margin: 1em;
     list-style: none;
-    font-size: 20px;
-    font-family: 'Ubuntu', sans-serif; 
-    flex-wrap: wrap;  
+    font-size: 18px;
+    font-family: 'Archivo Black', sans-serif; 
+}
+
+.title {
+    font-size: 40px;
+    font-family: 'Archivo Black', sans-serif;
+    color: black;
 }
