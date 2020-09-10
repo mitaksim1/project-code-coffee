@@ -2,20 +2,20 @@ import React from 'react';
 import { Button } from 'react-bootstrap';
 
 import './App.css';
+import Header from './Header';
 
 // Imports dans l'application
-import logo from './Assets/coffee-logo2.png';
+import logo from './Assets/code-and-coffee-logo.svg';
 
 function App() {
   return (
     <div className="container">
-      <img className="logo" src={logo} alt="Coffee&Code"/>
-
+      <Header logo={ logo }/>
       <div className="content">
-        <p>Réservez un <strong>Coffee Bar</strong> pour coder vos projets et rencontrez d'autres <strong>développeurs</strong> pour partager vos idées</p>
+        <p>Réservez un <strong>Coffee Bar</strong> pour coder vos projets et rencontrez d'autres <strong>développeurs</strong> pour partager vos idées!</p>
 
-        <form>
-          <label htmlFor="email">E-MAIL *</label>
+        <form className="content_form">
+          <label htmlFor="email">E-MAIL</label>
           <input 
           type="email" 
           id="email" 
