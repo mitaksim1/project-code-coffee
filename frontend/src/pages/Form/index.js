@@ -49,7 +49,6 @@ export default function Form() {
           onChange={handlePasswordChange}
           />
           <Button type="submit" variant="dark">Validez</Button>
-          {/*<a href="">Créez votre compte gratuitement pour commencer à profiter des événements Code & Coffee!</a>*/}
         </form>
     </div>
     );

@@ -8,7 +8,7 @@ import Login from './pages/Login';
 import Form from './pages/Form';
 
 // Imports dans l'application
-import logo from './Assets/code-and-coffee-logo.svg';
+import logo from './Assets/coffee-logo1.svg';
 
 function App() {
 

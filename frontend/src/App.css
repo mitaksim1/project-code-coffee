@@ -16,8 +16,7 @@ html, body, #root {
 #root {
     background-color: #ffdf02; 
     border: 1px solid red;
-    height: 900px;
-    
+    height: 900px;  
 }
 
 .container {
