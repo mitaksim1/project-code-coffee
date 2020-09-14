@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import { Button } from 'react-bootstrap';
 
 import api from '../../services/api';
-/*import './style.css';*/
+import ButtonModal from '../ButtonModal';
+//import Modal from '../Modal';
+import './style.css';
 
-export default function Form() {
+export default function FormModal(props) {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
@@ -29,26 +30,39 @@ export default function Form() {
     }
 
     return (
-        <div className="content">
-        
+      <div className="content"   
+      style={{
+        transform: props.visible ? 'translateY(0vh' : 'translateY(-100vh)',
+        opacity: props.visible ? '1' : '0'
+    }}
+    >
+    <button onClick={props.invisible}>X</button> 
+    
         <form className="content_form" onSubmit={handleSubmit}>
+          <label htmlFor="name">NOM</label>
+          <input className="input_element"
+          type="text" 
+          id="name" 
+          placeholder="Votre nom" 
+          value={ email }
+          onChange={handleEmailChange}
+          />
           <label htmlFor="email">E-MAIL</label>
-          <input
+          <input className="input_element"
           type="email" 
           id="email" 
           placeholder="Votre e-mail" 
           value={ email }
           onChange={handleEmailChange}
           />
-          <label htmlFor="password">PASSWORD</label>
-          <input
+          <label htmlFor="password">MOT DE PASSE</label>
+          <input className="input_element"
           type="password" 
           id="password" 
           placeholder="Votre mot de passe" 
           value={ password }
           onChange={handlePasswordChange}
           />
-          <Button type="submit" variant="dark">Validez</Button>
         </form>
     </div>
     );

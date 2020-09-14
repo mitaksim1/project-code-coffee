@@ -1,0 +1,12 @@
+.signup_button {
+    width: 50%;
+    text-transform: uppercase;
+    margin: 0 auto;
+    background-color: black;
+    border-radius: 5px;
+    border: none;
+    justify-content: center;
+    display: flex;
+    cursor: pointer;
+}
+

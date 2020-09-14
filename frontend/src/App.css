@@ -12,20 +12,21 @@ html, body, #root {
 
 /* Styles */
 
-
 #root {
     background-color: #ffdf02; 
     border: 1px solid red;
-    height: 900px;  
+    height: 100vh; 
 }
 
 .container {
     background: url('./Assets/background.jpg') no-repeat; 
     background-size: cover;
+    background-position: 30% 75%;
     float: right;
     height: 100%;
-    width: 50%;
+    width: 50vw;
     display: flex;
+    border: 1px solid greenyellow;
 }
 
 

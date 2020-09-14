@@ -4,8 +4,8 @@
     left: 0;
     top: 0;
     border: 1px solid red;
-    width: 50%;
-    height: 12%;
+    width: 50vw;
+    height: 12vh;
 }
 
 .menu_logo {
@@ -30,7 +30,7 @@
     border: 1px solid blue;
     margin: 1em;
     list-style: none;
-    font-size: 18px;
+    font-size: 16px;
     font-family: 'Archivo Black', sans-serif; 
 }
 
