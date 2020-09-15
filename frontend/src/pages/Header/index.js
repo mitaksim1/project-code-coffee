@@ -1,8 +1,9 @@
 import React from 'react';
 
 import './style.css';
+import logo from '../../Assets/coffee-logo1.svg';
 
-function Header({ logo }) {
+function Header() {
   return (
     <header className="menu">
         <img className="menu_logo" src={logo} alt="Coffee&Code"/>

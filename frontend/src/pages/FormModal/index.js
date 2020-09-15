@@ -1,22 +1,34 @@
 import React, { useState } from 'react';
+import {BsXSquare} from "react-icons/bs";
+import { Button } from 'react-bootstrap';
+import { render } from 'react-dom';
+import FlashMessage from 'react-flash-message';
 
 import api from '../../services/api';
-import ButtonModal from '../ButtonModal';
-//import Modal from '../Modal';
 import './style.css';
 
 export default function FormModal(props) {
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  
     // Form submit method
     async function handleSubmit(event) {
         event.preventDefault();
 
-        // Requesting API
-        const response = await api.post('/sessions', { email, password });
+            // Requesting API
+        try {
+              const response = await api.post('/sessions', { name, email, password });
 
-        console.log(response);
+        } catch(err) {
+        
+            alert ('Erreur! Reesayez');
+        } 
+    }
+
+      // Changes name's input value
+      function handleNameChange(event) {
+        setName(event.target.value);
       }
 
       // Changes email's input value
@@ -29,6 +41,7 @@ export default function FormModal(props) {
         setPassword(event.target.value);
     }
 
+
     return (
       <div className="content"   
       style={{
@@ -36,33 +49,40 @@ export default function FormModal(props) {
         opacity: props.visible ? '1' : '0'
     }}
     >
-    <button onClick={props.invisible}>X</button> 
+    <BsXSquare className="close_modal" onClick={props.invisible}/>
     
-        <form className="content_form" onSubmit={handleSubmit}>
-          <label htmlFor="name">NOM</label>
+        <form action="/dashboard" className="content_form" autoComplete="off" onSubmit={handleSubmit}>
+          <label className="content_label" htmlFor="name">NOM</label>
           <input className="input_element"
           type="text" 
           id="name" 
           placeholder="Votre nom" 
-          value={ email }
-          onChange={handleEmailChange}
+          required
+          value={ name }
+          onChange={handleNameChange}
           />
-          <label htmlFor="email">E-MAIL</label>
+          <label className="content_label" htmlFor="email">E-MAIL</label>
           <input className="input_element"
           type="email" 
           id="email" 
           placeholder="Votre e-mail" 
+          required
           value={ email }
           onChange={handleEmailChange}
           />
-          <label htmlFor="password">MOT DE PASSE</label>
+          <label className="content_label" htmlFor="password">MOT DE PASSE</label>
           <input className="input_element"
           type="password" 
           id="password" 
-          placeholder="Votre mot de passe" 
+          placeholder="Votre mot de passe"
+          required 
           value={ password }
           onChange={handlePasswordChange}
           />
+          <Button 
+            className="submit_button" 
+            type="submit" 
+            variant="success">Validez</Button>
         </form>
     </div>
     );

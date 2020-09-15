@@ -5,22 +5,38 @@
     box-shadow: 1px 1px 1px black;
     padding: 16px;
     width: 300px;
-    max-height: auto;
+    height: auto;
     transition: all 0.5s ease-out;
     margin: auto;
-    margin-top: 30px;
+    margin-top: 20px;
 }
 
 .content_form {
     display: flex;
     flex-direction: column;
-    align-content: flex-end;;
     padding: .5em;
-    border: 1px solid red;
+    /*border: 1px solid red;*/
 }
 
 .input_element {
-    border: 1px solid blue;
+    border: 1px solid #ccc;
+    border-radius: .2em;
+    padding: .2em;
     margin-bottom: .5em;
+    text-align: center;
+}
+
+.content_label {
+    font-family: 'Archivo Black', sans-serif;
+    color: #494950;
+}
+
+.close_modal {
+    float: right;
+    color: #494950;
+}
+
+.submit_button {
+    margin: 0 auto;
 }
 
