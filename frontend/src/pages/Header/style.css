@@ -3,35 +3,20 @@
     position: absolute;
     left: 0;
     top: 0;
-    border: 1px solid red;
     width: 50vw;
     height: 12vh;
+    border: 1px solid black;
 }
 
 .menu_logo {
     height: 100%;
-    width: 150px;
-    border: 1px solid blue;
+    width: 10vw;
 }
 
 .menu_items {
-    display: flex;     
-    color: black;    
-    border: 1px solid red;
-    height: 100%;
-    width: 90%;
-}
-
-.menu_list {
-    display: inline-flex;
-}
-
-.menu_list li {   
-    border: 1px solid blue;
-    margin: 1em;
-    list-style: none;
-    font-size: 16px;
-    font-family: 'Archivo Black', sans-serif; 
+    display: flex;    
+    border: 1px solid green;
+    width: 40vw;
 }
 
 .title {

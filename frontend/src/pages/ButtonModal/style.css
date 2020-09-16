@@ -1,12 +1,18 @@
-.signup_button {
-    width: 50%;
-    text-transform: uppercase;
-    margin: 0 auto;
-    background-color: black;
-    border-radius: 5px;
-    border: none;
-    justify-content: center;
+.menu_list {
     display: flex;
-    cursor: pointer;
+    color: black;    
+    border: 1px solid red;
+    height: 100%;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.menu_list li {   
+    border: 1px solid blue;
+    margin: 1em;
+    list-style: none;
+    font-size: 16px;
+    font-family: 'Archivo Black', sans-serif; 
+    padding: 1em;  
 }
 
