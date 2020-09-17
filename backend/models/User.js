@@ -1,9 +1,25 @@
 const mongoose = require('mongoose');
 
     const UserSchema = new mongoose.Schema({
-        name: String,
-        email: String,
-        password: String
+        name: {
+            type: String,
+            require: true,
+        },
+        email: {
+            type: String,
+            unique: true,
+            required: true,
+            lowercase: true,
+        },
+        password: {
+            type: String,
+            required: true,
+            select: false,
+        },
+        createdAt: {
+            type: Date,
+            default: Date.now,
+        } 
     });
 
 // Compiling schema into a model
