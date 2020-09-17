@@ -16,6 +16,7 @@ const routes = express.Router();
 const upload = multer(uploadConfig);
 
 routes.post('/sessions', SessionController.store);
+routes.post('/login', SessionController.login);
 routes.get('/coffees', CoffeeEventController.index);
 routes.post('/coffees', upload.single('thumbnail'), CoffeeEventController.store);
 routes.get('/dashboard', DashboardController.show);

@@ -19,25 +19,34 @@ module.exports = {
             const user = await User.create({ name, email, password });
             return response.json(user);
 
-        } catch (err) {
-            if (!name || !email || !password) {
-                return response.status(400).json({ error: 'Registration failed '});
-            }; 
+        } catch (err) { 
+            return response.status(400).json({ error: 'Registration failed '});
+            
         }  
-    }      
-/*
+    },      
+
     async login(request, response) {
         // Authenticate user
         const { email, password } = request.body;
 
-        const user = await User.findOne({ email, password });
-
-        if (!email || !password) {
-            response.status(400).send({
-                error : 
-            })
+        if (!email) {
+            return response.status(400).json({
+                error: "Veuillez saisir un email"
+            });
+        }
+        if (!password) {
+            return response.status(400).json({
+                error: "Veuillez saisir un mot de passe"
+            });
         }
 
-        
-    }*/
+        const user = await User.findOne({ email });
+
+        if (!user) {
+            response.status(400).send({
+                error : "Ce email n'est pas enregistré"
+            });
+        }
+        return response.json({ user });   
+    }
 }
