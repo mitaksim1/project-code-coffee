@@ -14,7 +14,6 @@ const mongoose = require('mongoose');
         password: {
             type: String,
             required: true,
-            select: false,
         },
         createdAt: {
             type: Date,

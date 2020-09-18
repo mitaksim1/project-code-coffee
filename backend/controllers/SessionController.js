@@ -1,6 +1,7 @@
+require('dotenv').config();
 // Imports
 const User = require('../models/User');
-// const jwt = require('jsonwebtoken');
+const jwt = require('jsonwebtoken');
 
 /**
  * User's create account
@@ -17,7 +18,10 @@ module.exports = {
             }
 
             const user = await User.create({ name, email, password });
-            return response.json(user);
+
+            const accessToken = jwt.sign({ user_id: user.id }, process.env.ACCESS_TOKEN_SECRET);
+
+            return response.json({ user, accessToken });
 
         } catch (err) { 
             return response.status(400).json({ error: 'Registration failed '});
@@ -44,9 +48,16 @@ module.exports = {
 
         if (!user) {
             response.status(400).send({
-                error : "Ce email n'est pas enregistré"
+                error : "Cet email n'est pas enregistré"
             });
         }
-        return response.json({ user });   
+
+        if (password !== user.password) {
+            return response.status(400).send({ error: 'Mot de passe incorrect' });
+        }
+
+        const accessToken = jwt.sign({ user_id: user.id }, process.env.ACCESS_TOKEN_SECRET);
+
+        return response.json({ user, accessToken });   
     }
 }
