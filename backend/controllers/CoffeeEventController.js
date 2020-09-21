@@ -8,14 +8,14 @@ const User = require('../models/User');
 
 module.exports = {
 
-    // Lists all coffee shops
+    // Lists all coffee shops by technologies
     async index(request, response) {
         const { tech } = request.query;
 
         const coffee = await Coffee.find({ techs: tech });
 
-        return response.json(coffee);
-               
+        response.json({ coffee });   
+              
     },
 
     // Creating an event in a coffee shop
@@ -39,8 +39,8 @@ module.exports = {
             techs: techs.split(',').map(tech => tech.trim())
         })
 
-        return response.json(coffee);
+        return response.json({coffee});
     },
-
 }
+
 

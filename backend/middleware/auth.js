@@ -18,12 +18,12 @@ module.exports = (req, res, next) => {
 
     const [scheme, token] = tokenParts;
 
-    if (!/^Bearer$^/i.test(scheme)) {
+    if (!/^Bearer$/i.test(scheme)) {
         return res.status(401).send({ error: 'Token malformatted' });
     }
 
     // Verifying token
-    jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, decoded)) => {
+    jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, decoded) => {
         if (err) {
             return res.status(401).send({ error: 'Token invalid' });
         }
@@ -31,5 +31,5 @@ module.exports = (req, res, next) => {
         req.userId = decoded.id;
 
         return next();
-    }
+    });
 }

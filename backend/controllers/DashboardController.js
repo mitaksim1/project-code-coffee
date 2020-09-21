@@ -2,6 +2,7 @@
 const Coffee = require('../models/CoffeeEvent');
 
 module.exports = {
+    // Show coffee by its user_id
     async show(request, response) {
         const { user_id } = request.headers;
 

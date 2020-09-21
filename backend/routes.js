@@ -2,6 +2,7 @@
 const express = require('express');
 const multer = require('multer');
 const uploadConfig = require('./config/upload');
+const authMiddleware = require('./middleware/auth');
 
 // Import Controllers
 const SessionController = require('./controllers/SessionController');
@@ -17,9 +18,9 @@ const upload = multer(uploadConfig);
 
 routes.post('/sessions', SessionController.store);
 routes.post('/login', SessionController.login);
-routes.get('/coffees', CoffeeEventController.index);
-routes.post('/coffees', upload.single('thumbnail'), CoffeeEventController.store);
-routes.get('/dashboard', DashboardController.show);
+routes.get('/coffees',  CoffeeEventController.index);
+routes.post('/coffees', authMiddleware, upload.single('thumbnail'), CoffeeEventController.store);
+routes.get('/dashboard', authMiddleware, DashboardController.show);
 routes.post('/coffees/:coffee_id/bookings', BookingController.store);
 
 module.exports = routes;
