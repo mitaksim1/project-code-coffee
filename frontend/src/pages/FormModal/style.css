@@ -3,26 +3,25 @@
     border: 1px solid #ccc;
     border-radius: .3em;
     box-shadow: 1px 1px 1px black;
-    padding: 16px;
-    width: 300px;
+    padding: 14px;
+    width: 200px;
     height: auto;
     transition: all 0.5s ease-out;
-    margin: auto;
-    margin-top: 20px;
+    /*margin: auto;*/
 }
 
 .content_form {
     display: flex;
     flex-direction: column;
-    padding: .5em;
+    /*padding: .2em;*/
     /*border: 1px solid red;*/
 }
 
 .input_element {
     border: 1px solid #ccc;
     border-radius: .2em;
-    padding: .2em;
-    margin-bottom: .5em;
+    /*padding: .1em;*/
+    /*margin-bottom: .5em;*/
     text-align: center;
 }
 

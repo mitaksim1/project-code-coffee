@@ -1,0 +1,8 @@
+.content_alert {
+    position: absolute;
+    left: 0;
+    width: 50%;
+    height: 15%;
+    border: 1px solid darkgreen;
+    border-radius: 0;
+}

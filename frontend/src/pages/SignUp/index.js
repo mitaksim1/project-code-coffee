@@ -6,6 +6,7 @@ import { Button } from 'react-bootstrap';
 import './style.css';
 import api from '../../services/api';
 import logo from '../../Assets/coffee-logo1.svg';
+import Header from '../Header';
 
 export default function SignUp() {
   const [name, setName] = useState('');
@@ -45,6 +46,8 @@ export default function SignUp() {
 
 
   return (
+    <>
+    <Header />
     <div className="signup_container">
       <div className="signup_content">
         <section>
@@ -93,5 +96,6 @@ export default function SignUp() {
           </Link>
       </div>
     </div>
-  )
+    </>
+  );
 }

@@ -2,7 +2,6 @@ import React from 'react';
 
 import './style.css';
 import FormModal from '../FormModal';
-import Header from '../Header';
 
 export default class ButtonModal extends React.Component {
 
