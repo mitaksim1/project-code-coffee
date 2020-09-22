@@ -2,6 +2,7 @@ require('dotenv').config();
 // Imports
 const User = require('../models/User');
 const jwt = require('jsonwebtoken');
+const bcrypt = require('bcrypt');
 
 /**
  * User's create account
@@ -18,6 +19,9 @@ module.exports = {
             }
 
             const user = await User.create({ name, email, password });
+
+            // We don't want to return the password
+            user.password = undefined;
 
             const accessToken = jwt.sign({ user_id: user.id }, process.env.ACCESS_TOKEN_SECRET);
 
@@ -44,7 +48,7 @@ module.exports = {
             });
         }
 
-        const user = await User.findOne({ email });
+        const user = await User.findOne({ email }).select('+password');
 
         if (!user) {
             response.status(400).send({
@@ -52,12 +56,18 @@ module.exports = {
             });
         }
 
-        if (password !== user.password) {
-            return response.status(400).send({ error: 'Mot de passe incorrect' });
+        if (!await bcrypt.compare(password, user.password)) {
+           return response.status(400).send({ 
+               error: 'Mot de passe incorrect' 
+            });
         }
+        
+         // We don't want to return the password
+        user.password = undefined;
 
+        // sign() takes two parameters : unique user's data and the secret key
         const accessToken = jwt.sign({ user_id: user.id }, process.env.ACCESS_TOKEN_SECRET);
 
-        return response.json({ user, accessToken });   
+        return (response.json({ user, accessToken }));   
     }
 }

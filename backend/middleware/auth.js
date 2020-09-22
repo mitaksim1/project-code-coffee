@@ -22,7 +22,8 @@ module.exports = (req, res, next) => {
         return res.status(401).send({ error: 'Token malformatted' });
     }
 
-    // Verifying token
+    // Verifying if the user's token is the same in user's database
+    // decoded : data pass as parameter in the method sign()
     jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, decoded) => {
         if (err) {
             return res.status(401).send({ error: 'Token invalid' });
