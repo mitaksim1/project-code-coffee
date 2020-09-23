@@ -8,6 +8,8 @@ module.exports = {
 
         const coffees = await Coffee.find({ user: user_id });
 
+        const accessToken = jwt.sign({ user_id: user.id }, process.env.ACCESS_TOKEN_SECRET);
+
         return response.json(coffees);
     },
 }

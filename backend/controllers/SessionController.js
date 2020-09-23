@@ -4,10 +4,8 @@ const User = require('../models/User');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 
-/**
- * User's create account
- */
 module.exports = {
+    // Create an user account
     async store(request, response) {
         const { name, email, password } = request.body;
 
@@ -23,6 +21,7 @@ module.exports = {
             // We don't want to return the password
             user.password = undefined;
 
+            // With a token create and login at the same time
             const accessToken = jwt.sign({ user_id: user.id }, process.env.ACCESS_TOKEN_SECRET);
 
             return response.json({ user, accessToken });
@@ -61,13 +60,13 @@ module.exports = {
                error: 'Mot de passe incorrect' 
             });
         }
-        
+
          // We don't want to return the password
         user.password = undefined;
 
         // sign() takes two parameters : unique user's data and the secret key
         const accessToken = jwt.sign({ user_id: user.id }, process.env.ACCESS_TOKEN_SECRET);
 
-        return (response.json({ user, accessToken }));   
+        return response.json({ user, accessToken });   
     }
 }
