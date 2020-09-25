@@ -26,11 +26,10 @@ module.exports = (req, res, next) => {
     // decoded : data pass as parameter in the method sign()
     jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, decoded) => {
         if (err) {
-            return res.status(401).send({ error: 'Token invalid' });
+            return res.status(403).send({ error: 'Token invalid' });
         }
-
+        
         req.userId = decoded.id;
-
-        return next();
+        next();
     });
 }

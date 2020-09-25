@@ -1,20 +1,22 @@
 import React from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { Router, Switch, Route } from 'react-router-dom';
 
 import Home from './pages/Home';
 import Dashboard from './pages/Dashboard';
 import SignUp from './pages/SignUp';
-import Alert from './pages/Alert';
+import CoffeesMap from './pages/CoffeesMap';
+import history from './history';
+
 
 export default function Routes() {
     return (
-        <BrowserRouter>
+        <Router history={history}>
             <Switch>    
                 <Route path="/" exact component={Home}/>
                 <Route path="/dashboard" component={Dashboard}/>
                 <Route path="/signup" component={SignUp}/>
-                <Route path="/alert" component={Alert}/>
+                <Route path="/map" component={CoffeesMap}/>
             </Switch>
-        </BrowserRouter>
+        </Router>
     )
 }

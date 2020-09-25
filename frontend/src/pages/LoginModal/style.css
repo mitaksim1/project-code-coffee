@@ -1,0 +1,47 @@
+.content {
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: .3em;
+    box-shadow: 1px 1px 1px black;
+    padding: 14px;
+    width: 200px;
+    height: auto;
+    transition: all 0.5s ease-out;
+    position: relative;
+    left: 60%;
+    /*margin: auto;*/
+}
+
+.content_form {
+    display: flex;
+    flex-direction: column;
+    /*padding: .2em;*/
+    /*border: 1px solid red;*/
+}
+
+.input_element {
+    border: 1px solid #ccc;
+    border-radius: .2em;
+    /*padding: .1em;*/
+    /*margin-bottom: .5em;*/
+    text-align: center;
+}
+
+.input_element:focus {
+    box-shadow: 10px 5px 5px #ccc;
+}
+
+.content_label {
+    font-family: 'Archivo Black', sans-serif;
+    color: #494950;
+}
+
+.close_modal {
+    float: right;
+    color: #494950;
+}
+
+.submit_button {
+    margin: 0 auto;
+}
+

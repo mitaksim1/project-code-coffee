@@ -6,7 +6,7 @@ import { Button } from 'react-bootstrap';
 import './style.css';
 import api from '../../services/api';
 import logo from '../../Assets/coffee-logo1.svg';
-import Header from '../Header';
+//import Header from '../Header';
 
 export default function SignUp() {
   const [name, setName] = useState('');
@@ -42,12 +42,16 @@ export default function SignUp() {
   // Changes password's input value
   function handlePasswordChange(event) {
     setPassword(event.target.value);
-}
+  }
 
+  function handleMessage (event) {
+    event.preventDefault();
+    console.log('Compte crée avec succès!');
+  }
 
   return (
     <>
-    <Header />
+    {/*<Header />*/}
     <div className="signup_container">
       <div className="signup_content">
         <section>
@@ -84,7 +88,7 @@ export default function SignUp() {
           value={ password }
           onChange={handlePasswordChange}
           />
-          <Button
+          <Button onClick={handleMessage}
             className="submit_button" 
             type="submit" 
             variant="dark">Validez

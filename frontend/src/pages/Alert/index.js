@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Alert } from 'react-bootstrap';
 
 import './style.css';
-import FormModal from '../FormModal';
+import FormModal from '../LoginModal';
 
 function AlertDismissible() {
     const [show, setShow] = useState(true);

@@ -24,6 +24,8 @@ module.exports = {
         const { date, company, techs } = request.body;
         const { user_id } = request.headers;
 
+        console.log(request.file);
+
         // User exists ?
         const user = await User.findById(user_id);
 
@@ -37,7 +39,7 @@ module.exports = {
             company,
             date,
             techs: techs.split(',').map(tech => tech.trim())
-        })
+        });
 
         return response.json({coffee});
     },

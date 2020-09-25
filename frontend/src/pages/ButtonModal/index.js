@@ -1,7 +1,7 @@
 import React from 'react';
 
 import './style.css';
-import FormModal from '../FormModal';
+import LoginModal from '../LoginModal';
 
 export default class ButtonModal extends React.Component {
 
@@ -14,22 +14,22 @@ export default class ButtonModal extends React.Component {
         this.setState({
             visible: true
         });
-        console.log("true");
+        // console.log("true");
     }
 
     invisibleModal = () => {
         this.setState({
             visible: false
         });
-        console.log("false");
+        // console.log("false");
     }
     render() {
         return (
             <>
             <ul className="menu_list">
-                <li>Trouver un café</li>
+                <li><a href="/map">Trouver un café</a></li>
                 <li onClick={this.visibleModal} type="submit">Se connecter</li>
-                <FormModal 
+                <LoginModal 
                 visible={this.state.visible}
                 invisible={this.invisibleModal}
                 />
