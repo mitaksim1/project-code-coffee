@@ -13,13 +13,13 @@ html, body, #root {
 /* Styles */
 
 #root {
-    background-color: #ffdf02; 
+    background-color: #ffdf02;
     border: 1px solid red;
-    height: 100vh; 
+    height: 100vh;
 }
 
 .container {
-    background: url('./Assets/background.jpg') no-repeat; 
+    background: url('./assets/background.jpg') no-repeat;
     background-size: cover;
     background-position: 30% 75%;
     float: right;
