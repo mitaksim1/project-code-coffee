@@ -5,35 +5,29 @@ import api from '../../services/api';
 import './style.css';
 
 export default function Dashboard() {
-    const [coffees, setCoffees] = useState([]);
+  const [coffees, setCoffees] = useState([]);
 
-    useEffect(() => {
-        async function loadCoffees() {
-        
-            const user_id = localStorage.getItem('user');
-        
-            const response = await api.get('/dashboard', {
-                headers: { user_id }
-            });
+  useEffect(() => {
+    const user_id = localStorage.getItem('user');
 
-            setCoffees(response.data);
-            console.log(response.data);
-        }
-        loadCoffees();
-          
-    }, []);
+    api.get('dashboard', { headers: { user_id } }).then(response => {
+      setCoffees(response.data);
+    });
+  }, []);
 
-    return (
-        <>
-            <ul className="coffee_list">
-                {coffees.map(coffee => (
-                    <li key= {coffee.id}>
-                        <header style={{ backgroundImage: `url(${coffee.thumbnail_url})` }} />
-                        <strong>{coffee.company}</strong>
-                        <span>{coffee.date}</span>
-                    </li>
-                ))}
-            </ul>
-        </>
-    )
+  return (
+    <>
+      <ul className="coffee_list">
+        {coffees.map(coffee => (
+          <li key={coffee.id}>
+            <header
+              style={{ backgroundImage: `url(${coffee.thumbnail_url})` }}
+            />
+            <strong>{coffee.company}</strong>
+            <span>{coffee.date}</span>
+          </li>
+        ))}
+      </ul>
+    </>
+  );
 }

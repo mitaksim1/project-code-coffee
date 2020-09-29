@@ -1,17 +1,13 @@
 import React from 'react';
 
-import './App.css';
-
 import Routes from './routes';
 
-function App() {
+import './App.css';
 
+export default function App() {
   return (
-    <div className="container"> 
-        <Routes />
-    </div> 
-    
+    <div className="container">
+      <Routes />
+    </div>
   );
 }
-
-export default App;
